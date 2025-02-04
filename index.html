@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contatos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #075E54;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .form-section, .table-section {
+            background-color: #128C7E;
+            padding: 20px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #25D366;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #25D366;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #1ebe57;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            color: black;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #128C7E;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h2>Novo Contato</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Nome" required>
+                <input type="text" id="phone" placeholder="Telefone" maxlength="11" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h2>Contatos Salvos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                    </tr>
+                </thead>
+                <tbody id="contact-list"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("phone").addEventListener("input", function() {
+            // Remove qualquer caractere que não seja número
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+
+            if (name && phone.length <= 11) {
+                const table = document.getElementById("contact-list");
+                const newRow = table.insertRow();
+
+                const nameCell = newRow.insertCell(0);
+                const phoneCell = newRow.insertCell(1);
+
+                nameCell.textContent = name;
+                phoneCell.textContent = phone;
+
+                document.getElementById("contact-form").reset();
+            } else {
+                alert("O telefone deve ter no máximo 11 dígitos!");
+            }
+        });
+    </script>
+</body>
+</html>
