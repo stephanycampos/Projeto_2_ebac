@@ -1,0 +1,16 @@
+O objetivo do meu trabalho foi criar uma agenda de contatos simples, utilizando apenas HTML, CSS e JavaScript puro. A ideia foi desenvolver uma aplicação leve e funcional para cadastrar nomes e telefones, exibindo os dados diretamente em uma tabela dinâmica na mesma página.
+
+No meu projeto, usei:
+
+HTML para estruturar o conteúdo da aplicação, criando as seções de formulário e a tabela com os contatos salvos.
+CSS para estilizar o layout com uma paleta de cores inspirada no WhatsApp.
+JavaScript para adicionar a lógica da aplicação: capturar os dados do formulário, validar o número de telefone, inserir as informações na tabela e limpar o formulário após o envio.
+
+Destaques do projeto:
+
+- Validação de telefone para permitir apenas números e limitar a 11 dígitos.
+- Interface dividida em duas seções: uma para cadastro e outra para visualização dos contatos.
+- Estilo visual limpo e agradável, com uso de box-shadow, border-radius e cores contrastantes.
+- Tabela gerada dinamicamente com os dados inseridos pelo usuário.
+
+Esse trabalho foi uma ótima oportunidade para praticar manipulação de DOM com JavaScript puro, além de reforçar boas práticas de organização visual com HTML e CSS.
